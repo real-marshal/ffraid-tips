@@ -10,6 +10,7 @@ import { Info } from '@/components/info'
 import { FeedbackLinks } from '@/components/feedback-links'
 import { TableOfContents } from '@/components/table-of-contents'
 import { slugify } from '@/utils/slugify'
+import { Wip } from '@/components/wip'
 
 type DutyPageParams = { dutyName: string }
 
@@ -42,9 +43,14 @@ export async function generateMetadata({
 export default async function DutyPage({ params }: { params: Promise<DutyPageParams> }) {
   const { dutyName } = await params
 
-  const { meta, headings = {} } = (await import(`@/duties/${dutyName}/meta.ts`)) as {
+  const {
+    meta,
+    headings = {},
+    isWip = false,
+  } = (await import(`@/duties/${dutyName}/meta.ts`)) as {
     meta: DutyMetadata
     headings?: DutyHeadings
+    isWip?: boolean
   }
 
   const { default: DutyContent, heroImage } = (await import(
@@ -81,6 +87,7 @@ export default async function DutyPage({ params }: { params: Promise<DutyPagePar
             className='order-3 lg:col-start-3 lg:row-start-2 justify-self-end lg:h-min [&>.btn]:!text-end'
           />
         </div>
+        {isWip && <Wip />}
         <TableOfContents headings={headings} className='lg:hidden' />
         <DutyContent />
       </article>

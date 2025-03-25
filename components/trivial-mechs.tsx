@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { StaticImageData } from 'next/image'
 import { slugify } from '@/utils/slugify'
 import ExportedImage from 'next-image-export-optimizer'
@@ -15,7 +14,7 @@ export interface TrivialMechsMap {
 
 export function TrivialMechs({ mechs }: { mechs: TrivialMechsMap }) {
   return (
-    <div className='grid grid-cols-2 gap-4 text-center'>
+    <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 text-center'>
       {Object.values(mechs).map((mech, ind) => (
         <div
           key={ind}

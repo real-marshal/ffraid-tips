@@ -1,6 +1,8 @@
 import { DutyMetadata } from '@/app/[dutyName]/types'
 import { DutyHeadings } from '@/app/[dutyName]/types'
 
+export const isWip = true
+
 export const meta: DutyMetadata = {
   isCurrent: true,
   shortTitle: 'M3S',
