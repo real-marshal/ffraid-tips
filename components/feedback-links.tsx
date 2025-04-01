@@ -1,5 +1,5 @@
-import { discordLink } from '@/data'
-import { DiscordIcon, RedditIcon } from '@/components/icons'
+// import { discordLink } from '@/data'
+import { RedditIcon } from '@/components/icons'
 import { SocialLink } from '@/components/social-link'
 
 export function FeedbackLinks({
@@ -23,12 +23,12 @@ export function FeedbackLinks({
               svg={<RedditIcon className='size-4' />}
               className='hover:text-red-500 text-sm'
             />
-            <SocialLink
-              name='discord chat room'
-              link={discordLink}
-              svg={<DiscordIcon className='size-4' />}
-              className='hover:text-indigo-500 text-sm'
-            />
+            {/*<SocialLink*/}
+            {/*  name='discord chat room'*/}
+            {/*  link={discordLink}*/}
+            {/*  svg={<DiscordIcon className='size-4' />}*/}
+            {/*  className='hover:text-indigo-500 text-sm'*/}
+            {/*/>*/}
           </div>
         </nav>
       </div>

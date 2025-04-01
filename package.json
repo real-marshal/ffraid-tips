@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build && next-image-export-optimizer",
     "analyze": "ANALYZE=true && next build && next-image-export-optimizer",
     "serve": "next build && next-image-export-optimizer && serve out",

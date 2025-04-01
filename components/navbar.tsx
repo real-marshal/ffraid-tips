@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import ExportedImage from 'next-image-export-optimizer'
+import { StaticImageData } from 'next/image'
 
 export interface NavbarLink {
   label: string
@@ -17,7 +19,7 @@ export interface NavbarSubmenuSection {
 export interface NavbarSubmenu {
   sections?: NavbarSubmenuSection[]
   items?: NavbarLink[]
-  backgroundImage?: string
+  backgroundImage: StaticImageData
 }
 
 export interface NavbarSubmenuItem {
@@ -138,47 +140,55 @@ function DesktopNavbar({ items }: NavbarProps) {
                 {item.label}
               </div>
               <div
-                className='dropdown-content bg-cover flex flex-row cursor-default h-130'
+                className='dropdown-content cursor-default h-130 relative w-auto grow'
                 tabIndex={0}
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/images/${item.submenu.backgroundImage})`,
-                }}
               >
-                {item.submenu.sections
-                  ? item.submenu.sections.map((section, ind) => (
-                      <ul key={ind} className='menu ms-0 text-nowrap flex-nowrap overflow-auto'>
-                        <span className='menu-title uppercase text-xl'>{section.label}</span>
-                        {section.items?.map(({ href, label, longLabel, chips }, ind) => (
-                          <li
-                            key={ind}
-                            onClick={() => (document.activeElement as HTMLElement).blur()}
-                          >
-                            <Link href={href} key={ind} className='px-5'>
-                              <div className='flex flex-col'>
-                                <div className='flex items-center justify-between'>
-                                  <span className='text-xl'>{label}</span>
-                                  {chips?.map((chip, ind) => (
-                                    <span key={ind} className='uppercase'>
-                                      {chip}
-                                    </span>
-                                  ))}
+                <ExportedImage
+                  src={item.submenu.backgroundImage}
+                  alt='bg image'
+                  className='w-full h-full absolute z-0 brightness-20 object-cover'
+                  priority
+                />
+                <div className='w-full flex flex-row bg-[rgba(0,0,0,0.8)] z-2 bg-whtie'>
+                  {item.submenu.sections
+                    ? item.submenu.sections.map((section, ind) => (
+                        <ul key={ind} className='menu ms-0 text-nowrap flex-nowrap overflow-auto'>
+                          <span className='menu-title uppercase text-xl'>{section.label}</span>
+                          {section.items?.map(({ href, label, longLabel, chips }, ind) => (
+                            <li
+                              key={ind}
+                              onClick={() => (document.activeElement as HTMLElement).blur()}
+                            >
+                              <Link href={href} key={ind} className='px-5 inline-block'>
+                                <div className='flex flex-col [min-width:_200px]'>
+                                  <div className='flex items-center justify-between'>
+                                    <span className='text-xl'>{label}</span>
+                                    {chips?.map((chip, ind) => (
+                                      <span key={ind} className='uppercase'>
+                                        {chip}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <span className='text-base text-nowrap text-neutral-content font-normal'>
+                                    {longLabel}
+                                  </span>
                                 </div>
-                                <span className='text-base text-nowrap text-neutral-content font-normal'>
-                                  {longLabel}
-                                </span>
-                              </div>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ))
-                  : item.submenu.items?.map(({ href, label }, ind) => (
-                      <li key={ind} onClick={() => (document.activeElement as HTMLElement).blur()}>
-                        <Link href={href} key={ind}>
-                          {label}
-                        </Link>
-                      </li>
-                    ))}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      ))
+                    : item.submenu.items?.map(({ href, label }, ind) => (
+                        <li
+                          key={ind}
+                          onClick={() => (document.activeElement as HTMLElement).blur()}
+                        >
+                          <Link href={href} key={ind}>
+                            {label}
+                          </Link>
+                        </li>
+                      ))}
+                </div>
               </div>
             </div>
           ) : (

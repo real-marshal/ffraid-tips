@@ -1,23 +1,30 @@
+'use client'
+
 import Link from 'next/link'
 import { DutyHeadings } from '@/app/[dutyName]/types'
 import { slugify } from '@/utils/slugify'
-import { Fragment } from 'react'
 
 export function TableOfContents({
   headings,
   className,
+  listClassName,
 }: {
   headings: DutyHeadings
+  listClassName?: string
   className?: string
 }) {
   return (
     <aside
-      className={`border-1 p-5 ${className} [box-shadow:_2px_2px_black] dark:[box-shadow:_2px_2px_white] dark:bg-slate-800`}
+      className={`border-1 p-5 pr-9 ${className} [box-shadow:_2px_2px_black] dark:[box-shadow:_2px_2px_white] dark:bg-slate-800`}
     >
       <nav>
-        <ul className='pl-4'>
+        <ul className={`${listClassName} pl-4 overflow-y-auto lg:max-h-[85vh]`}>
           {Object.values(headings).map((heading, ind) => (
-            <li key={ind} className='pt-2'>
+            <li
+              key={ind}
+              className='pt-2'
+              onClick={() => (document.activeElement as HTMLElement).blur()}
+            >
               <Link
                 href={`#${slugify(typeof heading === 'object' ? heading.label : heading)}`}
                 className='font-bold mb-3 hover:border-b-2'

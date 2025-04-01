@@ -1,5 +1,4 @@
 export interface DutyMetadata {
-  isCurrent?: boolean
   shortTitle: string
   fullTitle: string
   type: 'raid' | 'trial' | 'alliance-raid'
@@ -9,9 +8,3 @@ export interface DutyMetadata {
 }
 
 export type DutyHeadings = Record<string, string | { label: string; items: Record<string, string> }>
-
-export interface DutyPreparation {
-  all: string[]
-  tanks: string[]
-  healers: string[]
-}

@@ -6,7 +6,13 @@ export function DutyCard({ image, meta }: { image?: StaticImageData; meta: DutyM
   return (
     <div className='relative z-0 rounded-lg shadow-md' data-theme='dark'>
       {image ? (
-        <ExportedImage src={image} alt='duty card image' className='rounded-lg brightness-50' />
+        <ExportedImage
+          src={image}
+          alt='duty card image'
+          className='rounded-lg brightness-50'
+          priority
+          fetchPriority='high'
+        />
       ) : (
         <div className='h-70' />
       )}

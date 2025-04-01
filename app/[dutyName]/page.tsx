@@ -7,10 +7,11 @@ import { DutyCard } from '@/components/duty-card'
 import { StaticImageData } from 'next/image'
 import { UrlBox } from '@/components/url-box'
 import { Info } from '@/components/info'
-import { FeedbackLinks } from '@/components/feedback-links'
+// import { FeedbackLinks } from '@/components/feedback-links'
 import { TableOfContents } from '@/components/table-of-contents'
 import { slugify } from '@/utils/slugify'
 import { Wip } from '@/components/wip'
+import { ListBullet } from '@/components/icons'
 
 type DutyPageParams = { dutyName: string }
 
@@ -61,7 +62,7 @@ export default async function DutyPage({ params }: { params: Promise<DutyPagePar
   }
 
   return (
-    <main className='min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_50%_1fr] p-5 gap-y-10 relative'>
+    <main className='min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_60%_1fr] p-5 gap-y-10 relative'>
       <TableOfContents
         headings={headings}
         className='hidden lg:block lg:mx-10 lg:justify-self-end lg:sticky lg:top-[calc(88px_+_var(--spacing)_*_5)] lg:h-min lg:[align-self:_start]'
@@ -76,21 +77,30 @@ export default async function DutyPage({ params }: { params: Promise<DutyPagePar
           {meta.difficulty !== 'normal' && (
             <Info className='order-1 lg:col-span-2'>
               This right here is considered high-end content. Before going in check that your gear
-              matches the min ilvl and has materia melded. You should also bring some food to make
-              sure that you have enough damage and hp. And don't forget to increase target's castbar
-              in your UI settings and put it closer to your screen's center - you need to see easily
-              what exactly the boss is going to do to react to mechanics in time.
+              matches the min ilvl and has materia melded. You should also bring some food to have
+              even more damage and hp. And don't forget to increase target's castbar in your UI
+              settings and put it closer to your screen's center - you need to see easily what
+              exactly the boss is going to do to react to mechanics in time. After you're done
+              getting to know the mechs, have a look at the preparation section.
             </Info>
           )}
-          <FeedbackLinks
-            redditLink='https://reddit.com'
-            className='order-3 lg:col-start-3 lg:row-start-2 justify-self-end lg:h-min [&>.btn]:!text-end'
-          />
+          {/*<FeedbackLinks*/}
+          {/*  redditLink='https://reddit.com'*/}
+          {/*  className='order-3 lg:col-start-3 lg:row-start-2 justify-self-end lg:h-min [&>.btn]:!text-end'*/}
+          {/*/>*/}
         </div>
         {isWip && <Wip />}
         <TableOfContents headings={headings} className='lg:hidden' />
         <DutyContent />
       </article>
+      <div className='dropdown dropdown-left dropdown-top fixed bottom-5 right-5 z-100 lg:hidden'>
+        <div tabIndex={0} role='button' className='btn btn-xl btn-circle'>
+          <ListBullet className='size-7' />
+        </div>
+        <div tabIndex={0} className='dropdown-content w-[75vw]'>
+          <TableOfContents headings={headings} listClassName='max-h-[60vh]' />
+        </div>
+      </div>
       {/*<div className='w-50 h-50'>ad</div>*/}
     </main>
   )

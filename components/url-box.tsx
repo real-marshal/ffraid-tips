@@ -9,8 +9,7 @@ export function UrlBox({ href, className }: { href: string; className?: string }
 
   return (
     <div
-      className={`flex flex-col border-1 rounded-lg p-2 px-3 ${className}`}
-      style={{ borderColor: 'rgba(0, 0, 0, 0.5)' }}
+      className={`flex flex-col border-1 rounded-lg p-2 px-3 ${className} [border-color:_rgba(0,0,0,0.5)] dark:[border-color:_rgba(255,255,255,0.5)]`}
     >
       <p className='text-sm opacity-50'>Quickly access this page using the link:</p>
       <div className='flex flex-row justify-between items-center'>

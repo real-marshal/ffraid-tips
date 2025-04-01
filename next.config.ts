@@ -26,6 +26,14 @@ const nextConfig: NextConfig = {
     nextImageExportOptimizer_generateAndUseBlurImages: 'true',
     nextImageExportOptimizer_remoteImageCacheTTL: '0',
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.webm/,
+      type: 'asset/resource',
+    })
+
+    return config
+  },
 }
 
 const withMDX = createMDX({
