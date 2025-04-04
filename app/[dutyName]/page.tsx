@@ -65,7 +65,7 @@ export default async function DutyPage({ params }: { params: Promise<DutyPagePar
     <main className='min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_60%_1fr] p-5 gap-y-10 relative'>
       <TableOfContents
         headings={headings}
-        className='hidden lg:block lg:mx-10 lg:justify-self-end lg:sticky lg:top-[calc(88px_+_var(--spacing)_*_5)] lg:h-min lg:[align-self:_start]'
+        className='hidden lg:block xl:mx-10 lg:mx-2 lg:justify-self-end lg:sticky lg:top-[calc(88px_+_var(--spacing)_*_5)] lg:h-min lg:[align-self:_start]'
       />
       <article className='flex flex-col gap-4'>
         <DutyCard image={heroImage} meta={meta} />
