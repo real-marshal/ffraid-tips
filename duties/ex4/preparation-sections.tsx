@@ -10,7 +10,7 @@ export function EFBaitingOrder() {
     <PreparationSections
       sections={[
         {
-          title: 'sup first (raidplan, standard pf strat)',
+          title: 'sup first (raidplan, wmg)',
           content: (
             <p>
               Supports follow the marks 1 and 3, while DPS - 2 and 4. You can either just convert
@@ -39,7 +39,7 @@ export function RB3Positions() {
     <PreparationSections
       sections={[
         {
-          title: 'tn (true north, raidplan, standard pf strat)',
+          title: 'tn (true north, raidplan, wmg)',
           content: <p>Stand at your standard clock spot, move clockwise if needed.</p>,
         },
         {
@@ -61,7 +61,7 @@ export function EF2Strats() {
     <PreparationSections
       sections={[
         {
-          title: 'n/s (mrrm/rmmr, thht/htth) (raidplan, standard pf strat)',
+          title: 'n/s (mrrm/rmmr, thht/htth) (raidplan, wmg)',
           content: (
             <>
               <p>
@@ -107,7 +107,7 @@ export function RB4Directions() {
     <PreparationSections
       sections={[
         {
-          title: 'relative (raidplan, standard pf strat)',
+          title: 'relative (raidplan, wmg)',
           content: (
             <p>
               From their initial chain stack position (the two non-rose tiles), supports run left,
