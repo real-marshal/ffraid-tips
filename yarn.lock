@@ -3427,6 +3427,7 @@ daisyui@latest:
     prettier: ^3.5.3
     react: ^19.0.0
     react-dom: ^19.0.0
+    react-intersection-observer: ^9.16.0
     sass: ^1.86.0
     serve: ^14.2.4
     tailwindcss: ^4.0.15
@@ -6274,6 +6275,19 @@ daisyui@latest:
   peerDependencies:
     react: ^19.1.0
   checksum: 1d154b6543467095ac269e61ca59db546f34ef76bcdeb90f2dad41d682cd210aae492e70c85010ed5d0a2caea225e9a55139ebc1a615ee85bf197d7f99678cdf
+  languageName: node
+  linkType: hard
+
+"react-intersection-observer@npm:^9.16.0":
+  version: 9.16.0
+  resolution: "react-intersection-observer@npm:9.16.0"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 2b6357376e5ef48913e47fe2276d5e93cc1c3d3063266fd0361fbcac46f527b50a963206e1647e178236d9384dcae2d2967ce2e99b303f1bb2a95c9f49888ad2
   languageName: node
   linkType: hard
 
