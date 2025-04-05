@@ -17,15 +17,13 @@ export const headings: DutyHeadings = {
   trivial: {
     label: 'Trivial',
     items: {
-      brutalImpact: 'Brutal Impact',
-      knuckleSandwich: 'Knuckle Sandwich ',
-      dopingDraught: 'Doping Draught',
+      test: 'test',
     },
   },
   core: {
     label: 'Core',
     items: {
-      quatOctoLariat: 'Quadruple/Octuple Lariat',
+      test: 'test',
     },
   },
 }
