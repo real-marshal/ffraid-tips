@@ -99,11 +99,13 @@ function Collapse({ title, content }: { title: string; content: ReactNode }) {
     <div className='collapse collapse-arrow border-b-2 border-t-2 rounded-none [border-color:_rgba(255,255,255,0.5)]'>
       <input type='checkbox' />
       <div className='collapse-title p-0 flex items-center'>
-        <h3 className='leading-[2] mb-2' id={slugify(title)}>
+        <h3 className='leading-[2]' id={slugify(title)}>
           {title}
         </h3>
       </div>
-      <div className='collapse-content p-0 flex items-center justify-center'>{content}</div>
+      <div className='collapse-content p-0 flex items-center justify-center *:first:mt-2'>
+        {content}
+      </div>
     </div>
   )
 }
