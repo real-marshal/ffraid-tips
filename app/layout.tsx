@@ -5,9 +5,9 @@ import './globals.css'
 import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'FFraid.tips',
+  title: 'FFraid.tips - guides for raids in FFXIV',
   description:
-    'Guides, tips and tricks for raids, trials and alliance raids from a popular MMORPG Final Fantasy XIV.',
+    'Guides, tips and tricks for raids, trials and alliance raids in a popular MMORPG Final Fantasy XIV. Multiple different strategies are offered, including standard raidplan and hector.',
 }
 
 export default function RootLayout({

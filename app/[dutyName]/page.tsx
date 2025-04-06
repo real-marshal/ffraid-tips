@@ -37,7 +37,7 @@ export async function generateMetadata({
 
   return {
     title: `${meta.shortTitle} guide - FFraid.tips`,
-    description: `Guide for ${meta.type.replace('-', ' ')} ${meta.fullTitle} also known as ${meta.shortTitle} from MMORPG Final Fantasy XIV`,
+    description: `Detailed guide for ${meta.type.replace('-', ' ')} ${meta.fullTitle} also known as ${meta.shortTitle} in MMORPG Final Fantasy XIV with animations and raidplan/hector strategies.`,
   }
 }
 
