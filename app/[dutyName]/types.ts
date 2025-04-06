@@ -5,6 +5,7 @@ export interface DutyMetadata {
   difficulty: 'normal' | 'savage' | 'extreme' | 'unreal' | 'chaotic' | 'ultimate'
   patch: number
   minIlvl: number
+  createdAt: Date
 }
 
 export type DutyHeadings = Record<string, string | { label: string; items: Record<string, string> }>

@@ -1,6 +1,11 @@
 export { default as heroImage } from './hero.jpg'
 import { headings } from './meta'
-import { TrivialMechs } from '../../components/trivial-mechs'
+import {
+  TrivialMech,
+  TrivialMechDesc,
+  TrivialMechs,
+  TrivialMechStrat,
+} from '../../components/trivial-mechs'
 import { Preparation } from '../../components/preparation'
 import { CoreMechVideo } from '../../components/core-mech-video'
 import { CoreMech, CoreMechDesc, CoreMechStrat } from '../../components/core-mech'
@@ -44,43 +49,28 @@ import {
 
 ## {headings.trivial.label}
 
-<TrivialMechs duty="ex4" mechs={{
-  thornedCatharsis: {
-    label: headings.trivial.items.thornedCatharsis,
-    description: 'Unavoidable raid-wide damage.',
-    strategy: 'Use damage reduction abilities.',
-    type: 'healer',
-    video: 'thorned_catharsis.webm'
-  },
-  stockBreak: {
-    label: headings.trivial.items.specterOfTheLost,
-    description: 'Tethered AoE tankbusters.',
-    strategy: 'Let tanks pick up the tethers and move away from the party.',
-    type: 'tank',
-    video: 'specters_of_the_lost.webm'
-  },
-  specterOfTheLost: {
-    label: headings.trivial.items.stockBreak,
-    description: 'Multi-hit party stack.',
-    strategy: 'Stack and use defensives.',
-    type: 'healer',
-    video: 'stock_break.webm'
-  },
-  perfumedQuietus: {
-    label: headings.trivial.items.perfumedQuietus,
-    description: 'Unavoidable raid-wide damage.',
-    strategy: 'Use damage reduction abilities.',
-    type: 'healer',
-    video: 'perfumed_queietus.webm'
-  },
-  rb: {
-    label: headings.trivial.items.rb,
-    description: 'Arena change for the next RB phase.',
-    strategy: 'Get ready for action.',
-    video: 'roseblood_bloom.webm'
-  }
-}} />
-
+<TrivialMechs duty="ex4">
+  <TrivialMech label={headings.trivial.items.thornedCatharsis} type="healer" video="thorned_catharsis.webm">
+    <TrivialMechDesc>Unavoidable raid-wide damage.</TrivialMechDesc>
+    <TrivialMechStrat>Use damage reduction abilities.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.specterOfTheLost} type="tank" video="specters_of_the_lost.webm">
+    <TrivialMechDesc>Tethered AoE tankbusters.</TrivialMechDesc>
+    <TrivialMechStrat>Let tanks pick up the tethers and move away from the party.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.stockBreak} type="healer" video="stock_break.webm">
+    <TrivialMechDesc>Multi-hit party stack.</TrivialMechDesc>
+    <TrivialMechStrat>Stack and use defensives.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.perfumedQuietus} type="healer" video="perfumed_queietus.webm">
+    <TrivialMechDesc>Unavoidable raid-wide damage.</TrivialMechDesc>
+    <TrivialMechStrat>Use damage reduction abilities.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.rb} type="healer" video="roseblood_bloom.webm">
+    <TrivialMechDesc>Arena change for the next RB phase.</TrivialMechDesc>
+    <TrivialMechStrat>Get ready for action.</TrivialMechStrat>
+  </TrivialMech>
+</TrivialMechs>
 
 ## {headings.core.label}
 
@@ -161,7 +151,7 @@ import {
   <CoreMechStrat>If you have a rose mark, go the 4 non-rose tiles opposite of the two spread zones near the boss and stand on one of them. Inner tiles are for tanks/melee DPS and outer tiles for healers/ranged DPS. If you have a spread circle, spread around on the side of the two spread zones while making sure you don't touch the outer rose tiles.</CoreMechStrat>
 </CoreMech>
 
-<CoreMechVideo duty='ex4' filename='rb_4_emblazon.webm' note="If the reaper stood at the pictomancer's position instead, they could maintain full melee uptime, but it was too late. Fortunately, the DPS check is basically non-existent for this fight."/>
+<CoreMechVideo duty='ex4' filename='rb_4_emblazon.webm' note="If the reaper stood at the pictomancer's position instead, he could maintain full melee uptime, but it was too late. Fortunately, the DPS check is basically non-existent for this fight."/>
 
 <CoreMech>
   <CoreMechDesc>Immediately afterwards, *Encircling Thorns* is cast, chaining supports with DPS. Soon after, at the start of *Alexandrian Banish III* a healer gets a stack and a rose spread which explode at the end of the cast. The stack spreads to all connected tiles.</CoreMechDesc>

@@ -3,7 +3,7 @@ import rb6Hector from './rb6_hector.png'
 import ef2Raidplan from './ef2_raidplan.png'
 import ef2Hector from './ef2_hector.png'
 import ExportedImage from 'next-image-export-optimizer'
-import { ReactNode } from 'react'
+import { PreparationSections } from '@/components/preparation-sections'
 
 export function EFBaitingOrder() {
   return (
@@ -81,7 +81,7 @@ export function EF2Strats() {
             <>
               <p>
                 Same as n/s but replace north with west and south with east. Spread positions change
-                to thht and rrmm from north to south. Why do this? No idea.
+                to thht and rrmm from north to south.
               </p>
               <p className='font-bold mt-2'>w/e after spreading:</p>
               <ExportedImage src={ef2Hector} alt='ef2 hector' />
@@ -129,7 +129,7 @@ export function RB6Roses() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan',
+          title: 'raidplan (wmg)',
           content: <ExportedImage src={rb6Raidplan} alt='rb6 raidplan' />,
         },
         {
@@ -138,18 +138,5 @@ export function RB6Roses() {
         },
       ]}
     />
-  )
-}
-
-function PreparationSections({ sections }: { sections: { title: string; content: ReactNode }[] }) {
-  return (
-    <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-      {sections.map(({ title, content }, ind) => (
-        <div key={ind} className='max-w-[300px] lg:max-w-[400px]'>
-          <p className='font-bold text-lg mb-2'>{title}</p>
-          {content}
-        </div>
-      ))}
-    </div>
   )
 }

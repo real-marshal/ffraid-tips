@@ -84,6 +84,14 @@ export default async function DutyPage({ params }: { params: Promise<DutyPagePar
               getting to know the mechs, have a look at the preparation section.
             </Info>
           )}
+          <p className='order-2 lg:col-start-1 lg:row-start-2 font-bold'>
+            Posted on{' '}
+            {meta.createdAt.toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </p>
           {/*<FeedbackLinks*/}
           {/*  redditLink='https://reddit.com'*/}
           {/*  className='order-3 lg:col-start-3 lg:row-start-2 justify-self-end lg:h-min [&>.btn]:!text-end'*/}

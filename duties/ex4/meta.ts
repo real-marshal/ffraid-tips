@@ -10,6 +10,7 @@ export const meta: DutyMetadata = {
   difficulty: 'extreme',
   patch: 7.2,
   minIlvl: 730,
+  createdAt: new Date(Date.UTC(2025, 3, 1)),
 }
 
 export const headings: DutyHeadings = {

@@ -1,27 +1,186 @@
+import { CoreMech, CoreMechDesc, CoreMechStrat } from '../../components/core-mech'
 export { default as heroImage } from './hero.jpg'
 import { headings } from './meta'
-import { TrivialMechs } from '../../components/trivial-mechs'
+import {
+  TrivialMech,
+  TrivialMechDesc,
+  TrivialMechs,
+  TrivialMechStrat,
+} from '../../components/trivial-mechs'
 import { Preparation } from '../../components/preparation'
+import { CoreMechVideo } from '../../components/core-mech-video'
+import {
+  AlphaBetaDebuffsStrategy,
+  ArcadyNightFeverSides,
+  DiscoInfernalMeleeSpotlights, QuarterBeatsPairs,
+} from './preparation-sections'
+import ExportedImage from 'next-image-export-optimizer'
+import diRanged from './di_ranged.png'
 
-### Should be done on April 5-6
-
-## {headings.preparation}
+## {headings.preparation.label}
 
 <Preparation preparation={{
-  all: ['Pick a clock spot'],
+  all: ['Pick a clock spot', 'Choose Disco Infernal spotlight strategy (for melee classes only)', 'Choose Arcady Night Fever sides & safe spots', 'Choose alpha/beta debuff strategy', 'Choose Quarter Beats pairs'],
   tanks: [],
   healers: [],
-}}/>
+}} extraSections={[
+  {
+    title: headings.preparation.items.discoInfernalMeleeSpotlights,
+    content: <DiscoInfernalMeleeSpotlights />
+  },
+  {
+    title: headings.preparation.items.arcadyNightFeverSides,
+    content: <ArcadyNightFeverSides />
+  },
+  {
+    title: headings.preparation.items.alphaBetaDebuffsStrategy,
+    content: <AlphaBetaDebuffsStrategy />
+  },
+  {
+    title: headings.preparation.items.quarterBeatsPairs,
+    content: <QuarterBeatsPairs />
+  }
+]}/>
 
 
 ## {headings.trivial.label}
 
-<TrivialMechs
-  duty="m5s"
-  mechs={{
- }} />
-
+<TrivialMechs duty="m5s">
+  <TrivialMech label={headings.trivial.items.deepCut} type="tank" video="deep_cut.webm">
+    <TrivialMechDesc>Cone AoE tankbusters.</TrivialMechDesc>
+    <TrivialMechStrat>If you're a tank, move away from the party and use defensives.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.celebrateGoodTimes} type="healer" video="celebrate_good_times.webm">
+    <TrivialMechDesc>Unavoidable raid-wide damage.</TrivialMechDesc>
+    <TrivialMechStrat>Use damage reduction abilities.</TrivialMechStrat>
+  </TrivialMech>
+  <TrivialMech label={headings.trivial.items.highNrgFever} video="frogtourage_finale_high_nrg_fever.webm">
+    <TrivialMechDesc>Enrage that's casted shortly after *Frogtourage Finale*.</TrivialMechDesc>
+    <TrivialMechStrat>Try again.</TrivialMechStrat>
+  </TrivialMech>
+</TrivialMechs>
 
 ## {headings.core.label}
 
+### {headings.core.items.snapTwistNDropTheNeedle}
 
+<CoreMech>
+  <CoreMechDesc>At some points in the fight, the boss casts *Flip to A-side* or *Flip to B-side*. This prepares delayed role or light party stacks that happen at some later time after a *2/3/4-snap Twist & Drop the Needle* cast.</CoreMechDesc>
+  <CoreMechStrat>Remember: A - role, B - light party. Continue learning about other mechs to see when the boss does these preparation casts. It's important to pay attention to them, otherwise you won't know how to react to the next *2/3/4-snap Twist & Drop the Needle*. In a lot of parties, there's at least one person who uses macros to send which cast, A or B, the boss did, so that when *2/3/4-snap Twist & Drop the Needle* starts being casted people can just look at the chat to realize what to do.</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="flip_to_b.webm" />
+
+<CoreMech>
+  <CoreMechDesc>The actual *2/3/4-snap Twist & Drop the Needle* cast does multiple half-arena cleaves on the same side, the amount of attacks depending on the number of snaps. Then one attack happens on the other side of the arena, after which the boss does AoE attacks that require you to stack.</CoreMechDesc>
+  <CoreMechStrat>Recall whether this is supposed to be role or light party stacks. For role stacks, tanks move north, DPS - south, healers - center. For light party stacks, LP1 moves north, LP2 moves south, light parties are formed based on the [standard positions](#standard-clock-positions). Notice how M2 and R2 move south no matter what greatly reducing their mental burden during the fight.</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="4_snap_twist_n_drop_the_needle.webm" note="Here a Flip to B-side was cast some time before, which requires light party stacks. Thus, as an M2, the reaper stood south, along with other LP2 members."/>
+
+<CoreMechVideo duty='m5s' filename="flip_a_2_snap_twist_n_drop_the_needle.webm" note="Flip to A-side was cast before, so people stacked by their roles. As an M2 (the easy noob spot), the reaper still keeps standing south."/>
+
+### {headings.core.items.discoInfernal}
+
+<CoreMech>
+  <CoreMechDesc>After the *Disco Infernal* cast, a checkerboard pattern appears, as well as multiple spotlights - 4 close to the boss and 4 far to the boss. At the same time everyone gets a debuff, one role (supports or DPS) with shorter timers than the others. If you don't stand at the spotlight the moment the debuff ends, you will die. Multiple people with the same debuff durations can't stand at the same spotlight together. Right after *Disco Infernal*, the boss casts *Funky Floor* making red tiles dangerous to stand on and alternating between safe and unsafe tiles. Soon after, *Outside In* or *Inside Out* is cast, the cast name telling which attacks are going to happen - for *Outside In* a donut followed by melee AoE, the opposite for *Inside Out*. Immediately afterwards, a *Flip to A/B-side* is cast which will determine the type of stacks for *2/3/4-snap Twist & Drop the Needle* that happens after the longer debuffs expire.</CoreMechDesc>
+  <CoreMechStrat>First, determine where exactly the safe spotlight will be. Position your camera in such way, that when the cast ends and the arena changes, you can see which spotlights are on the red tiles. Ranged DPS and healers need to just notice which corner has a spotlight on a red tile. That's the tile they should stand on when their timer ends. R1/H1 take the one on the west, R2/H2 on the east. Far red tile spotlights are diagonal to each other, so you only need to remember one corner no matter your position and then either go there if it's your side or go to the corner diagonal to that.
+    <br />For melees things are much more complicated, follow [the strategy](#disco-infernal-melee-spotlights) chosen by your party.
+    <br />Now that you remembered where to go in some 20-30 secs, dodge *Outside In* / *Inside Out* then start moving to your position. Pay attention to the castbar for the *Flip to A/B-side* and remember if it's roles or light parties, move to your spot when you're done with the spotlight.</CoreMechStrat>
+</CoreMech>
+
+<ExportedImage src={diRanged} alt="di ranged" className="lg:max-w-[500px] self-center"/>
+<span className="self-center -mt-4">*One of the possibilities for ranged/healers*</span>
+
+<CoreMechVideo duty='m5s' filename="disco_infernal.webm" note="As an M2, following the raidplan for melee spotlights, the reaper focused on the eastern and southern sides of the arena before the cast ended. The red tile spotlight is on the east, so the safe tile spotlight is on the south. The timer is short, which means safe tile spotlight is the one to go to. The reaper dodges AoE attacks and stays around the right spotlight and realizing that as an M2, there's no need to go anywhere else for the cleave attacks. In the distance, you can see a far red tile spotlight at the northeast corner appearing when the arena changes, where the red mage and the sage move for their debuffs."/>
+
+### {headings.core.items.arcadyNightFever}
+
+
+<CoreMech>
+  <CoreMechDesc>The boss does cone AoE attacks, first and last targeting just one player, others - two, a DPS and a support. Each attack repeats at the same place one more time. At the same time, donut and melee AoE attacks around the boss happen as well. After getting hit everyone gets a debuff - either alpha or beta.</CoreMechDesc>
+  <CoreMechStrat>Spread such that DPS are on one side of the map and supports are on the other. The exact sides as well as positions after getting hit differ depending on your party's [chosen strat](#arcady-night-fever-sides-safe-spots). Note that the donuts and melee AoEs intersect, i.e. you can't just stand at the edge and move a little back and forth, instead you have to run. You also can't backpedal as the movement speed is too slow to dodge the AoE. Either move your camera to run/strafe or use legacy movement.</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="arcady_night_feverf.webm" note="As an M2, following the raidplan strat, the reaper stood on the eastern side of the arena. To quickly run away from the AoE, left/right keybinds are set to strafe left/right. The reaper moves the camera left using RMB, then presses A, thus running to the left."/>
+
+<CoreMech>
+  <CoreMechDesc>This is immediately followed by *Let's Dance!* during which the boss casts half arena cleaves based on the currently selected frog's hand. While this is happening, alpha and beta debuffs start expiring. If at the time of its expiration you don't stand with someone who has the opposite debuff with same debuff duration, you will get huge bleed. If everything is done correctly, you'll get *Perfect Groove* buff increasing your damage by ~5% and giving a lot of LB charge.</CoreMechDesc>
+  <CoreMechStrat>Position your camera such that you can easily see the frogs' hands, stand at the center line and dodge left/right as you look at the frogs. To deal with the debuffs follow your party's [chosen strategy](#alpha-beta-debuffs-strategy). Try really hard to get *Perfect Groove* for the buff and LB, otherwise you might fail at the enrage (with the current ~740 ilvl).</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="lets_dance.webm" note="The reaper first looked at the frog to determine the safe side, then, following the conga strat, at ~60-70% of the cast peeked at the debuff timer and saw 20 secs, which meant being at the furthest tile."/>
+
+### {headings.core.items.rideTheWaves}
+
+<CoreMech>
+  <CoreMechDesc>First, *Flip to A/B-side* is cast. It's followed by *Ride the Waves* which is just a bunch of dangerous moving tiles, during which *Eighth Beats* and *Quarter Beats* happen in any order. *Eighth Beats* is just a spread mechanic while *Quarter Beats* requires you to pair with someone else. Then the boss casts already familiar *Outside In* (donut into melee AoE) / *Inside Out* (melee AoE into donut) sequence and finally *2/3/4-snap Twist & Drop the Needle* that was prepared before.</CoreMechDesc>
+  <CoreMechStrat>Pay attention to the castbar and remember - roles or light parties. Then 4 players move to the safe space close to the boss while the other 4 - further from the boss, the exact compositions and the pairs used next are determined by the [chosen strat](#quarter-beats-pairs). Stand together according to the assigned pairs for *Quarter Beats* and spread around for *Eighth Beats*. Dodge donut-melee AoE attacks and run to the correct position for role/light party stacks.</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="ride_the_waves.webm" note="As an M2, following the raidplan, the reaper stood in the safe space closer to the boss and paired with OT for Quarter Beats. Flip to B-side was cast before so light party stacks happen after dodging donut-melee AoE attacks."/>
+
+### {headings.core.items.frogtourage}
+
+<CoreMech>
+  <CoreMechDesc>Two frogs start moving from the adjacent walls separating the arena into safe and dangerous areas. During this, at some point either *Quarter Beats* or *Eighth Beats* is being cast ending right as the frogs finish their work.</CoreMechDesc>
+  <CoreMechStrat>As they start moving, follow the pair of frogs that's more convenient to look at and notice if they go separate ways or towards each other as they hit the wall. Separate ways - safe spaces at the ends of this lane, towards each other - the opposite lane. If you're in [LP1](#standard-clock-positions), move to the safe area on the east or north, [LP2](#standard-clock-positions) - west or south. Then either spread around - supports left, DPS right or form the assigned pairs (note that if you follow hector strat, this *Quarter Beats* pairing uses standard melee-with-melee pairs, not the ones assigned for other *Quarter Beats*)</CoreMechStrat>
+</CoreMech>
+
+
+<CoreMechVideo duty='m5s' filename="frogtourage.webm" note="The reaper decided to look at the frogs moving east-west as that was more comfortable, moving west as a member of LP2 and stacking with the MT when it became apparent that this is the safe lane."/>
+
+### {headings.core.items.discoInfernal2}
+
+
+<CoreMech>
+  <CoreMechDesc>Four frogs spawn around the boss and four spotlights appear at the edges of the arena moving either to the center of a wall or to a corner. Meanwhile, each role gets a debuff - long or short, indicating when they should stand at a spotlight. As the short debuffs expire, the frogs do cone AoE attacks targeting nearest players and giving another debuff that kills them if they get hit by another one of these cone AoE attacks. The frogs repeat the attacks when the long debuffs expire. After the first set of attacks, the boss starts casting *Flip to A/B-side* which causes role/light party stacks after the spotlights are done.</CoreMechDesc>
+  <CoreMechStrat>Stand at your [standard clock positions](#standard-clock-positions). As the cast ends, check if you have a short debuff (9-7 secs) or a long one (19-18 secs). If you have a short debuff, notice where spotlights are to decide if you should go to a corner or the center of a wall. Your position is either at your marker or the marker of [your clock spot color](#standard-clock-positions). If you have a long debuff, stand near the frog in such a way that the attack doesn't hit spotlights.  Repeat this again, but now the roles are reversed. Pay attention to the castbar for *Flip to A/B-side* and play the mech accordingly.</CoreMechStrat>
+</CoreMech>
+
+
+<CoreMechVideo duty='m5s' filename="disco_infernal_2.webm" note="As an M2, the reaper stood at 3, looking at the debuffs at the end of the cast. Short timer - quick camera move: no spotlight at the center yet which means it's moving there. After getting the spotlight, the reaper stands in front of the frog to make sure that the attack hits the previous spotlight position and not the current one with a support standing there."/>
+
+### {headings.core.items.arcadyNightEncore}
+
+<CoreMech>
+  <CoreMechDesc>The *Arcady Night Encore* cast itself is exactly the same as [Arcady Night Fever](#arcady-night-fever) except you don't get debuffs upon being hit. But this time it's followed by *Let's Dance! Remix* instead of *Let's Dance!*. Now the frogs' hands can indicate not just two sides for the cleaves, but four, making it significantly harder to dodge. Like with *Let's Dance!* perfect dodges will give you *Perfect Groove* - a ~5% damage buff and LB points.</CoreMechDesc>
+  <CoreMechStrat>Preposition yourself for the first few frogs, then dodge. At first I tried standing at the center and moving left/right/forward/backward from there keeping the camera on the frogs but with backpedalling being so slow it didn't work too well as I would often lose the center point. Maybe with legacy movement this would work better. Now instead I prefer to actively use the camera, strafing left/right to run backwards and oftentimes looking at the next frog right after the current dodge. Same as before, you should really try to get that *Perfect Groove*.</CoreMechStrat>
+</CoreMech>
+
+
+<CoreMechVideo duty='m5s' filename="lets_dance_remix.webm" note=""/>
+
+### {headings.core.items.frogtourage2}
+
+<CoreMech>
+  <CoreMechDesc>Two frogs appear, their hands and special effects showing where cleave attacks are going to happen. This repeats one more time and is then followed by *Do the Hustle* which is just a half-arena boss cleave.</CoreMechDesc>
+  <CoreMechStrat>Look at the frogs to determine safe area and run there, repeat again, then dodge the boss cleave.</CoreMechStrat>
+</CoreMech>
+
+
+<CoreMechVideo duty='m5s' filename="frogtourage_2.webm" note=""/>
+
+<CoreMech>
+  <CoreMechDesc>The cleaves are followed by two frogs moving from one side of the arena making either the center part safe or the two outer sides. Then four frogs appear around the boss and after some delay do cone AoE attacks targeting nearest players and giving them a debuff killing them if they get hit by the attack again. This repeats one more time, this time the part that was safe before will be unsafe and vice versa.</CoreMechDesc>
+  <CoreMechStrat>Make sure you stand at [your standard clock positions](#standard-clock-positions). Like in *Frogtourage*, check if the frogs go separate ways or towards each other upon hitting the wall. Separate ways - center lane is safe, towards each other - outer lanes are safe. Now bait the frogs by standing near them - supports first, DPS second. If the center lane is safe, baiters stand in front of their frogs looking at the boss, this way the cone AoE attacks will be directed away from the boss, which is where non-baiters are going to stand. If the outer lanes are safe, baiters stand just at the edge of the safe space looking slightly diagonally at the their frogs such that the attacks will be directed away from the center of a lane, while non-baiters stand further away from the edge at the center of their lanes.</CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="frogtourage_2_cont.webm" note="As an M2, the reaper stood at 3 and looked at the frogs hitting the wall - they went separate ways, thus making center lane safe. Knowing that supports are the first to bait, the reaper stood right in the boss. For the next pair of frogs, it was DPS's turn to bait so the reaper stood right at the edge of the safe area aiming the cone attack further away from the center"/>
+
+<CoreMech>
+  <CoreMechDesc>Immediately afterwards, *Do the Hustle* is being cast which spawns two frogs with their hands indicating cleave directions while the boss prepares his own cleave attack.</CoreMechDesc>
+  <CoreMechStrat>Look at the frogs to determine safe area then take into account the boss cleave.</CoreMechStrat>
+</CoreMech>
+
+
+<CoreMechVideo duty='m5s' filename="f2_do_the_hustle.webm" note=""/>
+
+### {headings.core.items.funkyFloor}
+
+<CoreMech>
+  <CoreMechDesc>This is the same *Funky Floor* that happens in the first *Disco Inferno*, but this time there are no spotlights and no *Flip to A/B side* casts. Instead *Quarter Beats* or *Eighth beats* is cast first, followed by *Outside In* / *In Outside* attacks and then the opposite *Quarter Beats* / *Eighth beats*.</CoreMechDesc>
+  <CoreMechStrat>Spread if you see *Eighth beats* cast or pair up if it's *Quarter Beats* according to the [assigned pairs](#quarter-beats-pairs). Then dodge *Outside In* / *In Outside* and play the opposite *Eighth beats* / *Quarter beats*. </CoreMechStrat>
+</CoreMech>
+
+<CoreMechVideo duty='m5s' filename="funky_floor_2.webm" note="Following the raidplan pair assignments, as an M2, the reaper paired up with the OT for Quarter Beats."/>

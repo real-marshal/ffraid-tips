@@ -9,4 +9,5 @@ export const meta: DutyMetadata = {
   difficulty: 'chaotic',
   patch: 7.15,
   minIlvl: 710,
+  createdAt: new Date(Date.UTC(2025, 3, 1)),
 }
