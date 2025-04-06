@@ -19,7 +19,7 @@ export const headings: DutyHeadings = {
     items: {
       standardClockPositions: 'Standard clock positions',
       discoInfernalMeleeSpotlights: 'Disco Infernal melee spotlights',
-      arcadyNightFeverSides: 'Arcady Night Fever sides & safe spots',
+      arcadyNightFeverSides: 'Arcady Night Fever sides & spreads',
       alphaBetaDebuffsStrategy: 'Alpha/Beta debuffs strategy',
       quarterBeatsPairs: 'Quarter Beats pairs',
     },
