@@ -25,7 +25,7 @@ export const headings: DutyHeadings = {
     },
   },
   trivial: {
-    label: 'Trivial',
+    label: 'Trivial casts',
     items: {
       deepCut: 'Deep Cut',
       celebrateGoodTimes: 'Celebrate Good Times',
@@ -33,7 +33,7 @@ export const headings: DutyHeadings = {
     },
   },
   core: {
-    label: 'Core',
+    label: 'Core mechs',
     items: {
       snapTwistNDropTheNeedle: '2/3/4-snap Twist & Drop the Needle',
       discoInfernal: 'Disco Infernal / Funky Floor',
