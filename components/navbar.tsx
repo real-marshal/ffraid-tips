@@ -148,6 +148,7 @@ function DesktopNavbar({ items }: NavbarProps) {
                   alt='bg image'
                   className='w-full h-full absolute z-0 brightness-20 object-cover'
                   priority
+                  sizes='(max-width: 64rem) 0w, 30vw'
                 />
                 <div className='w-full flex flex-row bg-[rgba(0,0,0,0.8)] z-2 bg-whtie'>
                   {item.submenu.sections

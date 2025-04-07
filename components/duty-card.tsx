@@ -22,6 +22,7 @@ export function DutyCard({
           className='rounded-lg brightness-50'
           priority
           fetchPriority='high'
+          sizes='(max-width: 40rem) 500w, 80vw'
         />
       ) : (
         <div className='h-70' />
