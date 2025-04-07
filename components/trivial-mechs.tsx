@@ -63,7 +63,7 @@ export function TrivialMech({
           loop
           preload='auto'
           playsInline
-          className='rounded-b-[calc(var(--radius-md)_-_2px)] focus:scale-[2] focus:rounded-md focus:border-2 transition duration-300 ease-out cursor-pointer'
+          className='rounded-b-[calc(var(--radius-md)_-_2px)] focus:scale-[2] focus:rounded-md focus:border-2 transition duration-300 ease-out cursor-pointer z-10'
         >
           <source src={`./duties/${duty}/av1/${video}`} type='video/webm;codecs="av01.0.05M.08"' />
           <source src={`./duties/${duty}/vp9/${video}`} type='video/webm;codecs="vp9"' />
