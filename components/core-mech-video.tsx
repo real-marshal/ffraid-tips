@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 export function CoreMechVideo({
