@@ -37,7 +37,7 @@ export async function generateMetadata({
 
   return {
     title: `${meta.shortTitle} guide - FFraid.tips`,
-    description: `Detailed guide for ${meta.type.replace('-', ' ')} ${meta.fullTitle} also known as ${meta.shortTitle} in MMORPG Final Fantasy XIV with animations and raidplan/hector strategies.`,
+    description: `Easy to understand guide for ${meta.type.replace('-', ' ')} ${meta.fullTitle} also known as ${meta.shortTitle} in MMORPG Final Fantasy XIV (FFXIV) with animations for each mechanic. Raidplan, hector and other popular strategies are explained.`,
   }
 }
 
