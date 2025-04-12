@@ -15,7 +15,7 @@ export function TableOfContents({
 }) {
   return (
     <aside
-      className={`border-1 p-5 ${className} [box-shadow:_2px_2px_black] dark:[box-shadow:_2px_2px_white] bg-white dark:bg-slate-800`}
+      className={`border-1 p-5 ${className} [box-shadow:_2px_2px_black] dark:[box-shadow:_2px_2px_white] bg-white dark:bg-gray-800`}
     >
       <nav>
         <ul className={`${listClassName} pl-4 overflow-y-auto lg:max-h-[85vh]`}>

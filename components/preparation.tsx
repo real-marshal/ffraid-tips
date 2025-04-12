@@ -4,6 +4,7 @@ import healerIcon from '@/public/images/healer.png'
 import clockPositions from '@/public/images/clock.png'
 import { ReactNode } from 'react'
 import { slugify } from '@/utils/slugify'
+import { StratLink, StratLinks } from '@/components/strat-links'
 
 export interface DutyPreparation {
   all: string[]
@@ -19,19 +20,24 @@ export interface DutyPreparationSection {
 export function Preparation({
   preparation,
   extraSections = [],
+  links,
 }: {
   preparation: DutyPreparation
   extraSections?: DutyPreparationSection[]
+  links?: StratLink[]
 }) {
   return (
     <div className='bg-black rounded-lg text-white p-5 flex flex-col gap-4'>
       <div>
-        <p className='text-xs lg:text-base text-[#bbb] italic'>
-          This is just a reminder for people who already understand the fight. Skip this for now if
-          you have no idea what this is about.
-        </p>
-        <h3>Things to agree on before pulling</h3>
-        <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 gap-6'>
+        <div className='flex flex-col lg:flex-row items-end lg:justify-between lg:items-start'>
+          <p className='text-xs lg:text-base text-[#bbb] italic'>
+            This is just a reminder for people who already understand the fight. Skip this for now
+            if you have no idea what this is about.
+          </p>
+          {links && links.length > 0 && <StratLinks links={links} />}
+        </div>
+        <h3 className='mt-3 lg:mt-1'>Things to agree on before pulling</h3>
+        <div className='grid grid-cols-1 lg:grid-cols-3 mt-3 gap-6'>
           <div>
             <div className='flex items-center gap-2 h-[40px]'>
               <p className='lg:text-lg font-bold before:absolute before:w-full relative before:bottom-0 before:h-[4px] before:[background:_linear-gradient(90deg,_rgba(130,24,26,1)_0%,_rgba(28,57,142,1)_50%,_rgba(13,84,43,1)_100%)] grow pb-1 h-[36px]'>
