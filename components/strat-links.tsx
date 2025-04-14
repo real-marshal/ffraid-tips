@@ -7,7 +7,7 @@ export interface StratLink {
 
 export function StratLinks({ links, className }: { links: StratLink[]; className?: string }) {
   return (
-    <div className={`dropdown dropdown-hover leading-3 ${className ?? ''}`}>
+    <div className={`dropdown dropdown-hover leading-3 ${className ?? ''}`} data-theme='dark'>
       <div
         tabIndex={0}
         role='button'
