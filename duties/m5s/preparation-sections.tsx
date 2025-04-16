@@ -11,7 +11,7 @@ export function DiscoInfernalMeleeSpotlights() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (6pH)',
+          title: 'raidplan (6pH, toxic, tf)',
           content: (
             <p>
               First you need to understand that the near spotlights on red tiles appear on opposite
@@ -57,7 +57,7 @@ export function ArcadyNightFeverSides() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (6pH)',
+          title: 'raidplan (6pH, toxic, tf)',
           content: (
             <p>
               Supports spread on the west and DPS on the east, in such a way that there are safe
@@ -95,7 +95,7 @@ export function AlphaBetaDebuffsStrategy() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (6pH), hector, conga line',
+          title: 'raidplan (6pH, toxic, tf), hector, conga line',
           content: (
             <p>
               Look at your debuff timers and form a line such that every alpha-beta pair with the
@@ -128,7 +128,7 @@ export function QuarterBeatsPairs() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (6pH)',
+          title: 'raidplan (6pH, toxic, tf)',
           content: (
             <div className='flex flex-row gap-3'>
               <ul className='border-1 rounded-md p-2 inline-block'>
