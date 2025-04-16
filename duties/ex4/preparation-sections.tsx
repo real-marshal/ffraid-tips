@@ -1,5 +1,6 @@
 import rb6Raidplan from './rb6_raidplan.png'
 import rb6Hector from './rb6_hector.png'
+import rb6NaRaidplan from './rb6_na_raidplan.png'
 import ExportedImage from 'next-image-export-optimizer'
 import { PreparationSections } from '@/components/preparation-sections'
 import cleanArena from './clean_arena.png'
@@ -14,7 +15,7 @@ export function EFBaitingOrder() {
     <PreparationSections
       sections={[
         {
-          title: 'sup first (raidplan, wmg)',
+          title: 'sup first (raidplan, wmg, -wj9)',
           content: (
             <p>
               Supports follow the marks 1 and 3, while DPS - 2 and 4. You can either just convert
@@ -51,18 +52,20 @@ export function RB3Positions() {
     <PreparationSections
       sections={[
         {
-          title: 'tn (true north, raidplan, wmg)',
-          content: <p>Stand at your standard clock spot, move clockwise if needed.</p>,
+          title: 'tn (true north, eu raidplan, wmg)',
+          content: (
+            <p>Stand at your standard clock spot, move to the adjacent correct tile or clockwise</p>
+          ),
           image: cleanArena,
           imageAlt: 'roseblood bloom 3 raidplan',
           animation: rb3RaidplanAnim,
         },
         {
-          title: 'relative north (hector)',
+          title: 'relative north (hector, na raidplan, -wj9)',
           content: (
             <p>
               Stand at you clock spot relative to the new north defined by the two inner rose tiles
-              separated by the inner non-rose tile.
+              separated by the inner non-rose tile, move to the adjacent correct tile or clockwise
             </p>
           ),
           image: cleanArena,
@@ -81,7 +84,7 @@ export function EF2Strats() {
     <PreparationSections
       sections={[
         {
-          title: 'n/s (mrrm/rmmr, thht/htth) (raidplan, wmg)',
+          title: 'n/s (mrrm/rmmr, thht/htth) (raidplan, wmg, -wj9)',
           content: (
             <p>
               Supports stand north at the edge of the hitbox, DPS stand south at the edge of the
@@ -127,7 +130,7 @@ export function RB4Directions() {
     <PreparationSections
       sections={[
         {
-          title: 'relative (raidplan, wmg)',
+          title: 'relative (raidplan, wmg, -wj9)',
           content: (
             <p>
               From their initial chain stack position (the two non-rose tiles), supports run left,
@@ -149,12 +152,17 @@ export function RB6Roses() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (wmg)',
+          title: 'eu raidplan (wmg)',
           content: <ExportedImage src={rb6Raidplan} alt='rb6 raidplan' />,
         },
         {
           title: 'hector',
           content: <ExportedImage src={rb6Hector} alt='rb6 hector' />,
+        },
+        {
+          title: 'na raidplan (-wj9)',
+          imageLabel: 'all 4 roses are placed either north or south, no mixing allowed',
+          content: <ExportedImage src={rb6NaRaidplan} alt='rb6 raidplan (NA)' />,
         },
       ]}
     />
