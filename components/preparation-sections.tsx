@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import { StaticImageData } from 'next/image'
 import AnimatedSchematic, { WaapiEntity } from '@/components/animated-schematic'
 import ExportedImage from 'next-image-export-optimizer'
-import cleanArena from '@/duties/m5s/clean_arena.png'
 
 export function PreparationSections({
   sections,
@@ -26,8 +25,8 @@ export function PreparationSections({
           </div>
           <div>
             {imageLabel && <p className='font-bold mt-2'>{imageLabel}</p>}
-            {animation ? (
-              <AnimatedSchematic src={cleanArena} alt={imageAlt ?? title} waapiObj={animation} />
+            {animation && image ? (
+              <AnimatedSchematic src={image} alt={imageAlt ?? title} waapiObj={animation} />
             ) : (
               image && <ExportedImage src={image} alt={imageAlt ?? title} />
             )}

@@ -4,6 +4,8 @@ import ef2Raidplan from './ef2_raidplan.png'
 import ef2Hector from './ef2_hector.png'
 import ExportedImage from 'next-image-export-optimizer'
 import { PreparationSections } from '@/components/preparation-sections'
+import cleanArena from './clean_arena.png'
+import { efRaidplanAnim } from '@/duties/ex4/ef_raidplan'
 
 export function EFBaitingOrder() {
   return (
@@ -18,6 +20,9 @@ export function EFBaitingOrder() {
               hector strat.
             </p>
           ),
+          image: cleanArena,
+          imageAlt: 'escalons fall raidplan',
+          animation: efRaidplanAnim,
         },
         {
           title: 'dps in always first (hector)',
@@ -28,6 +33,11 @@ export function EFBaitingOrder() {
               attacks.
             </p>
           ),
+          imageLabel:
+            'in this particular set of marks the moves are exactly the same as in raidplan',
+          image: cleanArena,
+          imageAlt: 'escalons fall raidplan',
+          animation: efRaidplanAnim,
         },
       ]}
     />
