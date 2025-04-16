@@ -1,7 +1,5 @@
 import { PreparationSections } from '@/components/preparation-sections'
 import cleanArena from '@/duties/m5s/clean_arena.png'
-import anfRaidplan from '@/duties/m5s/anf_raidplan.png'
-import andHector from '@/duties/m5s/anf_hector.png'
 import conga from '@/duties/m5s/conga.png'
 import { diHectorMeleeAnim } from '@/duties/m5s/di_hector_melee'
 import { diRaidplanMeleeAnim } from '@/duties/m5s/di_raidplan_melee'
@@ -69,7 +67,7 @@ export function ArcadyNightFeverSides() {
               attack often hits multiple people instead of one.
             </p>
           ),
-          image: anfRaidplan,
+          image: cleanArena,
           imageAlt: 'arcady night fever raidplan',
           animation: anfRaidplanAnim,
         },
@@ -83,7 +81,7 @@ export function ArcadyNightFeverSides() {
               back and forth.
             </p>
           ),
-          image: andHector,
+          image: cleanArena,
           imageAlt: 'arcady night fever hector',
           animation: anfHectorAnim,
         },
