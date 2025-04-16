@@ -248,6 +248,11 @@ function Controls({
   animatedSchematicsState?: AnimatedSchematicState
 }) {
   const [isPlaying, setIsPlaying] = useState(true)
+  const [playbackRate, setPlaybackRate] = useState(1)
+
+  useEffect(() => {
+    animations?.forEach((anim) => anim.updatePlaybackRate(playbackRate))
+  }, [animations, playbackRate])
 
   return (
     <div className='absolute left-[1%] top-[99%] -translate-y-full flex flex-row justify-between w-[98%] align-end z-[1]'>
@@ -274,6 +279,24 @@ function Controls({
         </button>
       )}
       <div className='flex flex-row items-center gap-1'>
+        <div className='dropdown dropdown-top dropdown-hover leading-3' data-theme='dark'>
+          <span tabIndex={0} role='button' className='cursor-pointer ml-2'>
+            {playbackRate}x
+          </span>
+          <div
+            tabIndex={0}
+            className='menu dropdown-content bg-base-300 rounded-box z-1 shadow-sm leading-5'
+          >
+            <ul className='flex flex-col font-bold'>
+              {([0.25, 0.5, 1, 2] as const).map((playbackRateOption, ind) => (
+                <li key={ind} className='' onClick={() => setPlaybackRate(playbackRateOption)}>
+                  <span>{playbackRateOption}x</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className='bg-[#00000080] p-1 px-2 rounded-md h-[100%] flex flex-row items-center'>
           <span>role:</span>
           <div className='dropdown dropdown-top dropdown-hover leading-3' data-theme='dark'>
