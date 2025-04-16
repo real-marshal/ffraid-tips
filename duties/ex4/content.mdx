@@ -20,7 +20,7 @@ import {
 ## {headings.preparation.label}
 
 <Preparation preparation={{
-  all: ['Pick a clock spot', 'Choose EF1/3 baiting order', 'Choose EF2 strategy. If N/S, agree on MRRM/RMMR for DPS and THHT/HTTH for supports', 'Choose RB3 positions', 'Choose RB4 directions'],
+  all: ['Pick a clock spot', 'Choose EF1/3 baiting order', 'Choose RB3 positions', 'Choose EF2 strategy. If N/S, agree on MRRM/RMMR for DPS and THHT/HTTH for supports', 'Choose RB4 directions'],
   tanks: [],
   healers: [],
 }} extraSections={[
@@ -29,12 +29,12 @@ import {
     content: <EFBaitingOrder />
   },
   {
-    title: headings.preparation.items.ef2Strat,
-    content: <EF2Strats />
-  },
-  {
     title: headings.preparation.items.rb3Positions,
     content: <RB3Positions />
+  },
+  {
+    title: headings.preparation.items.ef2Strat,
+    content: <EF2Strats />
   },
   {
     title: headings.preparation.items.rb4Directions,

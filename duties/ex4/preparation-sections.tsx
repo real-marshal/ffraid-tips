@@ -1,11 +1,13 @@
 import rb6Raidplan from './rb6_raidplan.png'
 import rb6Hector from './rb6_hector.png'
-import ef2Raidplan from './ef2_raidplan.png'
-import ef2Hector from './ef2_hector.png'
 import ExportedImage from 'next-image-export-optimizer'
 import { PreparationSections } from '@/components/preparation-sections'
 import cleanArena from './clean_arena.png'
 import { efRaidplanAnim } from '@/duties/ex4/ef_raidplan'
+import { ef2RaidplanAnim } from '@/duties/ex4/ef2_raidplan'
+import { ef2HectorAnim } from '@/duties/ex4/ef2_hector'
+import { rb3RaidplanAnim } from '@/duties/ex4/rb3_raidplan'
+import { rb3HectorAnim } from '@/duties/ex4/rb3_hector'
 
 export function EFBaitingOrder() {
   return (
@@ -51,6 +53,9 @@ export function RB3Positions() {
         {
           title: 'tn (true north, raidplan, wmg)',
           content: <p>Stand at your standard clock spot, move clockwise if needed.</p>,
+          image: cleanArena,
+          imageAlt: 'roseblood bloom 3 raidplan',
+          animation: rb3RaidplanAnim,
         },
         {
           title: 'relative north (hector)',
@@ -60,6 +65,11 @@ export function RB3Positions() {
               separated by the inner non-rose tile.
             </p>
           ),
+          image: cleanArena,
+          imageLabel:
+            'in this particular case the moves are exactly the same as in raidplan, only starting positions are different',
+          imageAlt: 'roseblood bloom 3 hector',
+          animation: rb3HectorAnim,
         },
       ]}
     />
@@ -73,30 +83,30 @@ export function EF2Strats() {
         {
           title: 'n/s (mrrm/rmmr, thht/htth) (raidplan, wmg)',
           content: (
-            <>
-              <p>
-                Supports stand north at the edge of the hitbox, DPS stand south at the edge of the
-                hitbox. When the stacks end (donuts for the role with donuts), supports spread
-                around the boss on the northern side in the order of THHT/HTTH from west to east,
-                while DPS spread on the southern side in the order of MRRM/RMMR.
-              </p>
-              <p className='font-bold mt-2'>n/s mrrm thht after spreading:</p>
-              <ExportedImage src={ef2Raidplan} alt='ef2 raidplan' />
-            </>
+            <p>
+              Supports stand north at the edge of the hitbox, DPS stand south at the edge of the
+              hitbox. When the stacks end (donuts for the role with donuts), supports spread around
+              the boss on the northern side in the order of THHT/HTTH from west to east, while DPS
+              spread on the southern side in the order of MRRM/RMMR.
+            </p>
           ),
+          image: cleanArena,
+          imageLabel: 'n/s mrrm thht',
+          imageAlt: 'escalons fall 2 raidplan',
+          animation: ef2RaidplanAnim,
         },
         {
           title: 'w/e (hector)',
           content: (
-            <>
-              <p>
-                Same as n/s but replace north with west and south with east. Spread positions change
-                to thht and rrmm from north to south.
-              </p>
-              <p className='font-bold mt-2'>w/e after spreading:</p>
-              <ExportedImage src={ef2Hector} alt='ef2 hector' />
-            </>
+            <p>
+              Same as n/s but replace north with west and south with east. Spread positions change
+              to thht and rrmm from north to south.
+            </p>
           ),
+          image: cleanArena,
+          imageLabel: 'w/e',
+          imageAlt: 'escalons fall 2 hector',
+          animation: ef2HectorAnim,
         },
         {
           title: 'braindead',
