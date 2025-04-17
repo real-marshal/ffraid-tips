@@ -279,8 +279,11 @@ function Controls({
         </button>
       )}
       <div className='flex flex-row items-center gap-1'>
-        <div className='dropdown dropdown-top dropdown-hover leading-3' data-theme='dark'>
-          <span tabIndex={0} role='button' className='cursor-pointer ml-2'>
+        <div
+          className='dropdown dropdown-top dropdown-hover leading-3 bg-[#00000080] p-1 px-2 hover:bg-[#000000a0] rounded-md h-[100%] flex items-center justify-center cursor-pointer'
+          data-theme='dark'
+        >
+          <span tabIndex={0} role='button'>
             {playbackRate}x
           </span>
           <div
