@@ -10,7 +10,7 @@ export function Footer() {
       <div>
         <nav>
           <div className='flex gap-4 align-center justify-center'>
-            <div className={`dropdown dropdown-top`}>
+            <div className='dropdown dropdown-top dropdown-center'>
               <div
                 tabIndex={0}
                 role='button'
@@ -32,7 +32,7 @@ export function Footer() {
                 </BotCheckForm>
               </div>
             </div>
-            <div className={`dropdown dropdown-top`}>
+            <div className='dropdown dropdown-top dropdown-center'>
               <div
                 tabIndex={0}
                 role='button'
@@ -78,8 +78,8 @@ function BotCheckForm({
   return actualValue ? (
     children(actualValue)
   ) : (
-    <fieldset className='fieldset py-0'>
-      <legend className='fieldset-legend pt-0'> Who is called lamaty'i?</legend>
+    <div className='flex flex-col align-start gap-1'>
+      <p className='text-sm font-bold'>Who is called lamaty'i?</p>
       <input
         type='text'
         className='input'
@@ -87,6 +87,6 @@ function BotCheckForm({
         onChange={(e) => setInput(e.target.value)}
         placeholder='bot check'
       />
-    </fieldset>
+    </div>
   )
 }
