@@ -128,7 +128,7 @@ export function QuarterBeatsPairs() {
     <PreparationSections
       sections={[
         {
-          title: 'raidplan (6pH, toxic, tf)',
+          title: 'old raidplan (6pH, toxic, tf)',
           content: (
             <div className='flex flex-row gap-3'>
               <ul className='border-1 rounded-md p-2 inline-block'>
@@ -143,7 +143,8 @@ export function QuarterBeatsPairs() {
           ),
         },
         {
-          title: 'hector (not used during frogtourage)',
+          title:
+            'hector (not used during frogtourage), new raidplan (used only during ride the waves, funky floor 2 is the same as old raidplan)',
           content: (
             <div className='flex flex-row gap-3'>
               <ul className='border-1 rounded-md p-2 inline-block'>
