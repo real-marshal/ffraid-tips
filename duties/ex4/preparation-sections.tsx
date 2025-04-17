@@ -161,7 +161,8 @@ export function RB6Roses() {
         },
         {
           title: 'na raidplan (-wj9)',
-          imageLabel: 'all 4 roses are placed either north or south, no mixing allowed',
+          imageLabel:
+            'the raidplan prefers melee south ranged north, but also allows for melee north (close to the boss) with ranged south',
           content: <ExportedImage src={rb6NaRaidplan} alt='rb6 raidplan (NA)' />,
         },
       ]}
