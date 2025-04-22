@@ -132,7 +132,7 @@ export default function AnimatedSchematic({
 
   return (
     <div
-      className={`relative @container animated-schematic ${className}`}
+      className={`relative @container animated-schematic overflow-hidden ${className ?? ''}`}
       style={useMemo(
         () => ({ width: '100%', aspectRatio: src.width / src.height }),
         [src.height, src.width]
