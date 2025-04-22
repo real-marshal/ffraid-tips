@@ -4,6 +4,7 @@ import { StaticImageData } from 'next/image'
 import { slugify } from '@/utils/slugify'
 import ExportedImage from 'next-image-export-optimizer'
 import { createContext, ReactNode, useContext } from 'react'
+import { CastBar } from '@/components/cast-bar'
 
 const DutyNameContext = createContext('')
 
@@ -36,17 +37,23 @@ export function TrivialMech({
       style={{
         borderTop:
           type === 'healer'
-            ? 'solid 5px #359735'
+            ? 'solid 4px #359735'
             : type === 'tank'
-              ? 'solid 5px #3971c8'
+              ? 'solid 4px #3971c8'
               : 'solid 1px rgba(0,0,0,0.1)',
       }}
     >
-      <div className='pt-3 pb-2 grow px-5'>
-        <h3 id={slugify(label)} className='uppercase'>
-          {label}
-        </h3>
-        {children}
+      <div className='grow'>
+        <div
+          className='w-full flex flex-col items-center pt-4 lg:pt-6 lg:pb-3 [box-shadow:_0px_2px_3px_0px_black] [background:_repeating-linear-gradient(-45deg,_black,_black_10px,_#282828_10px,_#282828_11px)]'
+          style={{
+            borderTopLeftRadius: type ? 'none' : 'var(--radius-md)',
+            borderTopRightRadius: type ? 'none' : 'var(--radius-md)',
+          }}
+        >
+          <CastBar id={slugify(label)}>{label}</CastBar>
+        </div>
+        <div className='px-4 py-4'>{children}</div>
       </div>
       {image && (
         <ExportedImage
@@ -76,9 +83,13 @@ export function TrivialMech({
 }
 
 export function TrivialMechDesc({ children }: { children: ReactNode }) {
-  return <p>{children}</p>
+  return (
+    <p className='text-lg lg:text-xl border-b-2 pb-3 border-[#444] dark:border-[#bbb] border-dotted'>
+      {children}
+    </p>
+  )
 }
 
 export function TrivialMechStrat({ children }: { children: ReactNode }) {
-  return <p className='font-bold mt-3'>{children}</p>
+  return <p className='font-bold mt-3 text-lg lg:text-xl'>{children}</p>
 }
