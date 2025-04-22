@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 export function CoreMechVideo({
@@ -13,23 +13,23 @@ export function CoreMechVideo({
   note?: string
 }) {
   const ref = useRef<HTMLVideoElement>(null)
-  // const timeout = useRef<number>(null)
+  const timeout = useRef<number>(null)
 
   const { inView, ref: wrapperRef } = useInView({
     onChange: (inView) => {
       if (!ref.current) return
 
       if (inView) {
-        // if (
-        //   ref.current.readyState !== HTMLMediaElement.HAVE_ENOUGH_DATA &&
-        //   ref.current.networkState !== HTMLMediaElement.NETWORK_LOADING
-        // ) {
-        //   console.log(`loading ${ref.current.currentSrc}`)
-        //   ref.current.load()
-        // } else {
-        console.log(`playing ${ref.current.currentSrc}`)
-        void ref.current.play().catch((err) => console.error(err))
-        // }
+        if (
+          ref.current.readyState !== HTMLMediaElement.HAVE_ENOUGH_DATA &&
+          ref.current.networkState !== HTMLMediaElement.NETWORK_LOADING
+        ) {
+          console.log(`loading ${ref.current.currentSrc}`)
+          ref.current.load()
+        } else {
+          console.log(`playing ${ref.current.currentSrc}`)
+          void ref.current.play().catch((err) => console.error(err))
+        }
       } else if (ref.current.played.length) {
         console.log(`pausing ${ref.current.currentSrc}`)
         ref.current.pause()
@@ -37,20 +37,20 @@ export function CoreMechVideo({
     },
   })
 
-  // useEffect(() => {
-  //   timeout.current = window.setTimeout(() => {
-  //     if (ref.current && ref.current.readyState !== HTMLMediaElement.HAVE_ENOUGH_DATA) {
-  //       console.log(`deferred loading of ${ref.current.currentSrc}`)
-  //       ref.current.load()
-  //     }
-  //   }, 3000)
-  //
-  //   return () => {
-  //     if (timeout.current) {
-  //       clearTimeout(timeout.current)
-  //     }
-  //   }
-  // }, [])
+  useEffect(() => {
+    timeout.current = window.setTimeout(() => {
+      if (ref.current && ref.current.readyState !== HTMLMediaElement.HAVE_ENOUGH_DATA) {
+        console.log(`deferred loading of ${ref.current.currentSrc}`)
+        ref.current.load()
+      }
+    }, 3000)
+
+    return () => {
+      if (timeout.current) {
+        clearTimeout(timeout.current)
+      }
+    }
+  }, [])
 
   return (
     <div ref={wrapperRef}>
@@ -59,7 +59,7 @@ export function CoreMechVideo({
         tabIndex={0}
         muted
         loop
-        preload='metadata'
+        preload='none'
         playsInline
         className='rounded-md focus:scale-[1.2] focus:rounded-md transition duration-300 ease-out cursor-pointer'
         onLoadedData={() => {
