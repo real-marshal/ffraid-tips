@@ -11,7 +11,7 @@ export function StratLinks({ links, className }: { links: StratLink[]; className
       <div
         tabIndex={0}
         role='button'
-        className='btn btn-sm max-sm:btn-ghost max-sm:h-[calc(var(--size)_*_0.5)]'
+        className='btn btn-sm max-sm:btn-ghost max-sm:h-[calc(var(--size)_*_0.5)] max-sm:bg-black max-sm:focus:bg-black max-sm:hover:bg-black max-sm:rounded-none'
       >
         Links to original strategies
       </div>
